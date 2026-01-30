@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Signal } from '@angular/core';
+import { toSignal } from '@angular/core/rxjs-interop';
 import { RouterLink } from '@angular/router';
 
 import {
@@ -13,21 +14,30 @@ import {
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent {
   title = 'Neighborhood Treasure Hunt';
 
-  huntSteps = fallbackHomeContent.huntSteps;
-  businessStops = fallbackHomeContent.businessStops;
-  ticketTiers = fallbackHomeContent.ticketTiers;
-  faqItems = fallbackHomeContent.faqItems;
+  readonly homeContent: Signal<typeof fallbackHomeContent>;
 
-  constructor(private dataService: TreasureDataService) {}
+  constructor(private dataService: TreasureDataService) {
+    this.homeContent = toSignal(this.dataService.getHomeContent$(), {
+      initialValue: fallbackHomeContent
+    });
+  }
 
-  async ngOnInit(): Promise<void> {
-    const content = await this.dataService.getHomeContent();
-    this.huntSteps = content.huntSteps;
-    this.businessStops = content.businessStops;
-    this.ticketTiers = content.ticketTiers;
-    this.faqItems = content.faqItems;
+  get huntSteps() {
+    return this.homeContent().huntSteps;
+  }
+
+  get businessStops() {
+    return this.homeContent().businessStops;
+  }
+
+  get ticketTiers() {
+    return this.homeContent().ticketTiers;
+  }
+
+  get faqItems() {
+    return this.homeContent().faqItems;
   }
 }

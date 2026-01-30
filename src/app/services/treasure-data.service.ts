@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { collection, getDocs, getFirestore } from 'firebase/firestore';
+import { Observable, forkJoin, from, of } from 'rxjs';
+import { catchError, map } from 'rxjs/operators';
 import { FirebaseService } from './firebase.service';
 
 export interface BusinessStop {
@@ -131,33 +133,41 @@ export const fallbackHomeContent: HomeContent = {
 
 @Injectable({ providedIn: 'root' })
 export class TreasureDataService {
-  private db = getFirestore(this.firebaseService.app);
+  private db;
 
-  constructor(private firebaseService: FirebaseService) {}
-
-  async getHomeContent(): Promise<HomeContent> {
-    const [huntSteps, businessStops, ticketTiers, faqItems] = await Promise.all([
-      this.loadCollection<HuntStep>('huntSteps'),
-      this.loadCollection<BusinessStop>('businessStops'),
-      this.loadCollection<TicketTier>('ticketTiers'),
-      this.loadCollection<FaqItem>('faqItems')
-    ]);
-
-    return {
-      huntSteps: huntSteps.length ? huntSteps : fallbackHomeContent.huntSteps,
-      businessStops: businessStops.length ? businessStops : fallbackHomeContent.businessStops,
-      ticketTiers: ticketTiers.length ? ticketTiers : fallbackHomeContent.ticketTiers,
-      faqItems: faqItems.length ? faqItems : fallbackHomeContent.faqItems
-    };
+  constructor(private firebaseService: FirebaseService) {
+    this.db = getFirestore(this.firebaseService.app);
   }
 
-  private async loadCollection<T>(path: string): Promise<T[]> {
-    try {
-      const snapshot = await getDocs(collection(this.db, path));
-      return snapshot.docs.map((doc) => doc.data() as T);
-    } catch (error) {
-      console.error(`Failed to load ${path} from Firestore`, error);
-      return [];
-    }
+  getHomeContent$(): Observable<HomeContent> {
+    return forkJoin({
+      huntSteps: this.loadCollection$<HuntStep>('huntSteps'),
+      businessStops: this.loadCollection$<BusinessStop>('businessStops'),
+      ticketTiers: this.loadCollection$<TicketTier>('ticketTiers'),
+      faqItems: this.loadCollection$<FaqItem>('faqItems')
+    }).pipe(
+      map((content) => ({
+        huntSteps: content.huntSteps.length
+          ? content.huntSteps
+          : fallbackHomeContent.huntSteps,
+        businessStops: content.businessStops.length
+          ? content.businessStops
+          : fallbackHomeContent.businessStops,
+        ticketTiers: content.ticketTiers.length
+          ? content.ticketTiers
+          : fallbackHomeContent.ticketTiers,
+        faqItems: content.faqItems.length ? content.faqItems : fallbackHomeContent.faqItems
+      }))
+    );
+  }
+
+  private loadCollection$<T>(path: string): Observable<T[]> {
+    return from(getDocs(collection(this.db, path))).pipe(
+      map((snapshot) => snapshot.docs.map((doc) => doc.data() as T)),
+      catchError((error) => {
+        console.error(`Failed to load ${path} from Firestore`, error);
+        return of([]);
+      })
+    );
   }
 }
