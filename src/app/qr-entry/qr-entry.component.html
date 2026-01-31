@@ -1,0 +1,55 @@
+<div class="qr-page">
+  <header class="qr-header">
+    <a class="ghost-btn" routerLink="/">Back to the event</a>
+    <div class="qr-title">
+      <h1>Bonus draw entry</h1>
+      <p>
+        Thanks for scanning the QR code at a participating business. Use the code below to enter
+        the separate draw for the day.
+      </p>
+    </div>
+  </header>
+
+  <section class="qr-card">
+    <div class="qr-code">
+      <span>Daily code</span>
+      <strong>{{ entryCode || 'Enter code' }}</strong>
+    </div>
+    <form class="qr-form">
+      <label>
+        Entry code from QR
+        <input
+          type="text"
+          [value]="entryCode"
+          [readOnly]="entryCode !== ''"
+          placeholder="e.g. NELSON-072"
+        />
+      </label>
+      <label>
+        Full name
+        <input type="text" placeholder="Alex Johnson" />
+      </label>
+      <label>
+        Email address
+        <input type="email" placeholder="alex@email.com" />
+      </label>
+      <label>
+        Mobile number
+        <input type="tel" placeholder="+27 82 123 4567" />
+      </label>
+      <label>
+        Business location
+        <input type="text" placeholder="Business name or address" />
+      </label>
+      <label class="qr-checkbox">
+        <input type="checkbox" />
+        I confirm I scanned the QR code at the clue location.
+      </label>
+      <button class="primary-btn" type="submit">Submit entry</button>
+      <p class="qr-consent">
+        Your details are only used to contact winners and event updates. One entry per person per
+        day.
+      </p>
+    </form>
+  </section>
+</div>
