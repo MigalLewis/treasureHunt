@@ -38,7 +38,7 @@ export interface HomeContent {
 export const fallbackHomeContent: HomeContent = {
   huntSteps: [
     {
-      title: 'Check in at the town square',
+      title: 'Check in at the Every Nation Church',
       description:
         'Teams receive a unique map and starter clue packet to kick off the adventure.'
     },
@@ -86,12 +86,12 @@ export const fallbackHomeContent: HomeContent = {
   ticketTiers: [
     {
       name: 'Explorer Pass',
-      price: '$18',
+      price: 'R 18',
       details: ['Map + clue kit', 'Team entry (up to 4)', 'Prize draw entry']
     },
     {
       name: 'Community Pass',
-      price: '$30',
+      price: 'R 30',
       details: [
         'All Explorer perks',
         'Bonus charity badge',
@@ -100,9 +100,8 @@ export const fallbackHomeContent: HomeContent = {
     },
     {
       name: 'Sponsor Pass',
-      price: '$60',
+      price: 'Ask For details',
       details: [
-        'Team entry (up to 6)',
         'Logo on the live map',
         'Shout-out at closing ceremony'
       ]
