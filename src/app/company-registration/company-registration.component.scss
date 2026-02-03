@@ -1,0 +1,165 @@
+.page {
+  min-height: 100vh;
+  background: #f7f6f2;
+  color: #1c1b20;
+  font-family: 'Inter', sans-serif;
+}
+
+.site-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24px 8vw;
+  background: #fdfbf5;
+  border-bottom: 1px solid rgba(28, 27, 32, 0.08);
+
+  .logo {
+    font-weight: 700;
+    letter-spacing: 0.02em;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 20px;
+
+    a {
+      color: inherit;
+      text-decoration: none;
+      font-weight: 500;
+    }
+  }
+}
+
+.registration {
+  padding: 48px 8vw 96px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.intro {
+  max-width: 680px;
+
+  .eyebrow {
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    font-size: 0.75rem;
+    color: #6a6762;
+  }
+
+  h1 {
+    margin: 12px 0;
+    font-size: clamp(2rem, 3vw, 3rem);
+  }
+}
+
+.form-card {
+  background: #ffffff;
+  border-radius: 24px;
+  padding: 32px;
+  box-shadow: 0 18px 50px rgba(28, 27, 32, 0.08);
+}
+
+.registration-form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+
+  label {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    font-weight: 600;
+  }
+
+  input,
+  textarea {
+    border-radius: 12px;
+    border: 1px solid rgba(28, 27, 32, 0.12);
+    padding: 12px 14px;
+    font-size: 0.95rem;
+  }
+}
+
+.field-grid {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+.options {
+  border: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  legend {
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+}
+
+.option {
+  display: flex;
+  gap: 12px;
+  padding: 14px 16px;
+  border-radius: 16px;
+  border: 1px solid rgba(28, 27, 32, 0.12);
+  background: #fdfbf5;
+  align-items: flex-start;
+
+  input {
+    margin-top: 4px;
+  }
+
+  .option-title {
+    font-weight: 600;
+    display: block;
+    margin-bottom: 6px;
+  }
+
+  .option-price {
+    color: #5b5752;
+    font-weight: 500;
+  }
+}
+
+.notes textarea {
+  resize: vertical;
+}
+
+.consent {
+  flex-direction: row;
+  align-items: center;
+  font-weight: 500;
+
+  input {
+    margin-right: 8px;
+  }
+}
+
+.primary-btn {
+  border: none;
+  border-radius: 999px;
+  padding: 12px 24px;
+  background: #1c1b20;
+  color: #ffffff;
+  font-weight: 600;
+  cursor: pointer;
+  width: fit-content;
+}
+
+@media (max-width: 720px) {
+  .site-header {
+    flex-direction: column;
+    gap: 16px;
+    align-items: flex-start;
+  }
+
+  .form-card {
+    padding: 24px;
+  }
+}
