@@ -1,0 +1,115 @@
+<div class="page">
+  <header class="site-header">
+    <div class="logo">Treasure Hunt Day</div>
+    <nav class="nav-links">
+      <a [routerLink]="['/']">Back to home</a>
+    </nav>
+    <a class="primary-btn" [routerLink]="['/']">View event</a>
+  </header>
+
+  <main class="registration">
+    <section class="intro">
+      <p class="eyebrow">Business partners</p>
+      <h1>Company participation registration</h1>
+      <p>
+        Register your business to take part in the Parktown North Treasure Hunt Day. We will follow
+        up to confirm logistics, placement, and the final invoice.
+      </p>
+    </section>
+
+    <section class="form-card">
+      <form class="registration-form">
+        <div class="field-grid">
+          <label>
+            Company name
+            <input type="text" name="companyName" placeholder="Business name" required />
+          </label>
+          <label>
+            Contact person
+            <input type="text" name="contactName" placeholder="Full name" required />
+          </label>
+          <label>
+            Email address
+            <input type="email" name="email" placeholder="name@company.com" required />
+          </label>
+          <label>
+            Phone number
+            <input type="tel" name="phone" placeholder="+27 00 000 0000" required />
+          </label>
+          <label>
+            Business address
+            <input type="text" name="address" placeholder="Street, suburb" />
+          </label>
+          <label>
+            Website or social handle
+            <input type="text" name="website" placeholder="www.example.com" />
+          </label>
+        </div>
+
+        <fieldset class="options">
+          <legend>Select your participation option</legend>
+          @for (option of participationOptions; track option.id) {
+            <label class="option">
+              <input
+                type="radio"
+                name="ticketOption"
+                [value]="option.id"
+                [checked]="selectedOptionId === option.id"
+                (change)="selectedOptionId = option.id"
+                required
+              />
+              <div>
+                <span class="option-title">
+                  {{ option.label }}
+                </span>
+                @if (option.price) {
+                  <span class="option-price">{{ option.price }}</span>
+                }
+              </div>
+            </label>
+          }
+        </fieldset>
+
+        <label class="notes">
+          Additional notes
+          <textarea
+            name="notes"
+            rows="4"
+            placeholder="Share any space requirements, activity ideas, or preferred timing"
+          ></textarea>
+        </label>
+
+        <label class="consent">
+          <input type="checkbox" required />
+          <span>I agree to be contacted about logistics and next steps.</span>
+        </label>
+
+        <div class="payment">
+          <p class="payment-note">
+            Ready to pay? We will send you to Quicket to complete the payment for your selected
+            participation option.
+          </p>
+          <a
+            class="primary-btn"
+            [class.is-disabled]="!selectedOption"
+            [attr.aria-disabled]="!selectedOption"
+            [href]="selectedOption?.quicketUrl"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Continue to Quicket payment
+          </a>
+          <p class="payment-hint">
+            @if (selectedOption) {
+              You will be redirected to Quicket for {{ selectedOption.label }}.
+            } @else {
+              Select a participation option to enable payment.
+            }
+          </p>
+        </div>
+
+        <button class="ghost-btn" type="submit">Submit registration only</button>
+      </form>
+    </section>
+  </main>
+</div>
