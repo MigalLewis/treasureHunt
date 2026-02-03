@@ -71,7 +71,7 @@
             <p>1:30 PM live</p>
           </div>
         </div>
-        <button class="secondary-btn">View the schedule</button>
+        <button class="secondary-btn">Add to Calendar</button>
       </div>
     </section>
 
@@ -104,11 +104,13 @@
       <div class="stop-grid">
         @for (stop of businessStops; track stop.name) {
           <article class="stop-card">
+            <div class="stop-image">
+              <img [src]="stop.imageUrl" [alt]="stop.name" />
+            </div>
             <div class="stop-header">
               <h3>{{ stop.name }}</h3>
               <span>{{ stop.type }}</span>
             </div>
-            <p class="stop-location">{{ stop.location }}</p>
             <p class="stop-task">Task: {{ stop.task }}</p>
             <p class="stop-perk">Perk: {{ stop.perk }}</p>
           </article>
@@ -221,8 +223,7 @@
     <div>
       <h3>Get involved</h3>
       <p>
-        Want your business on the map? Email
-        <a href="mailto:hello@treasurehuntday.com">hello&#64;treasurehuntday.com</a>
+        Please call Lynne on 084 606 6749 or email<a href="mailto:Lynne@eventhelpline.com">Lynne&#64;eventhelpline.com</a>if you wish to sponsor prizes or have any questions.
       </p>
     </div>
     <div class="footer-actions">

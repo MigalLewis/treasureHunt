@@ -7,9 +7,9 @@ import { FirebaseService } from './firebase.service';
 export interface BusinessStop {
   name: string;
   type: string;
-  location: string;
   task: string;
   perk: string;
+  imageUrl: string;
 }
 
 export interface HuntStep {
@@ -38,60 +38,65 @@ export interface HomeContent {
 export const fallbackHomeContent: HomeContent = {
   huntSteps: [
     {
-      title: 'Check in at the Every Nation Church',
+      title: 'Check in at the Every Nation Church : 10H00',
       description:
-        'Teams receive a unique map and starter clue packet to kick off the adventure.'
+        'Arrive at Every Nation Church at 20A 7th  Avenue, Parktown North, our host venue. We have music, photo booths, food & drinks on sale a little market running showcasing local businesses and NGO\'s.  Teams sign in and get their maps then meet and mingle with our neighbors'
     },
     {
-      title: 'Complete local challenges',
+      title: 'Complete local challenges : 11:00',
       description:
-        'Visit community businesses, finish fun tasks, and collect stamps to unlock the final clue.'
+        'Visit community businesses, finish fun tasks, and collect stamps to complete passport.'
     },
     {
-      title: 'Return for the prize draw',
+      title: 'Return for the prize draw : 13:00',
       description:
-        'Finish by the cutoff time to enter the charity prize draw and celebrate together.'
+        'Teams hand their completed maps in at Every Nation Church. We have music, photo booths, food & drinks on sale a little market running.  Meet and mingle with our neighbors'
+    },
+    {
+      title: 'Enjoy the afternoon celebration : 14:00',
+      description:
+        'Music set by the fabulous local resident Steve Umculo!!! Award winning South African singer & songwriter known for his genre blending music of Afro centric grooves & folk harmonies'
     }
   ],
   businessStops: [
     {
       name: 'Riverbend Roasters',
       type: 'Coffee & Snacks',
-      location: 'Market Street',
       task: 'Match the secret blend to its aroma.',
-      perk: 'Free cold brew mini cup.'
+      perk: 'Free cold brew mini cup.',
+      imageUrl: 'assets/business-stops/3.png'
     },
     {
       name: 'Greenway Bikes',
       type: 'Outdoor Shop',
-      location: 'Harbor Ave',
       task: 'Time a 30-second gear swap challenge.',
-      perk: 'Helmet rental voucher.'
+      perk: 'Helmet rental voucher.',
+      imageUrl: 'assets/business-stops/4.png'
     },
     {
       name: 'Sunrise Deli',
       type: 'Neighborhood Deli',
-      location: 'Oak Lane',
       task: 'Build a dream picnic on the clue board.',
-      perk: 'Pickle pin + snack box discount.'
+      perk: 'Pickle pin + snack box discount.',
+      imageUrl: 'assets/business-stops/5.png'  
     },
     {
       name: 'Studio Bloom',
       type: 'Art & Crafts',
-      location: 'Pine Row',
       task: 'Sketch the landmark in under 60 seconds.',
-      perk: 'Class pass raffle ticket.'
+      perk: 'Class pass raffle ticket.',
+      imageUrl: 'assets/business-stops/6.png'
     }
   ],
   ticketTiers: [
     {
       name: 'Explorer Pass',
-      price: 'R 18',
+      price: 'R 65',
       details: ['Map + clue kit', 'Team entry (up to 4)', 'Prize draw entry']
     },
     {
-      name: 'Community Pass',
-      price: 'R 30',
+      name: 'Team Pass',
+      price: 'R 300',
       details: [
         'All Explorer perks',
         'Bonus charity badge',
