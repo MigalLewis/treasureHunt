@@ -234,6 +234,12 @@ main {
 .stop-perk {
   color: #5b5764;
 }
+.stop-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  display: block;
+}
 
 .ticket-card {
   display: grid;
