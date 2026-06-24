@@ -1,11 +1,11 @@
 <div class="page">
   <header class="site-header">
-    <div class="logo">Treasure Hunt Day</div>
+    <div class="logo">Community Carnival Day</div>
     <nav class="nav-links">
-      <a href="#how-it-works">How it works</a>
-      <a href="#stops">Local stops</a>
+      <a href="#how-it-works">Event highlights</a>
+      <a href="#stops">Activities</a>
       <a href="#tickets">Tickets</a>
-      <a href="#site-hunt">QR draw</a>
+      <a href="#site-hunt">Giving</a>
       <a href="#faq">FAQ</a>
     </nav>
     <a class="primary-btn" [routerLink]="['/company-registration']">Company registration</a>
@@ -13,35 +13,34 @@
   <div class="hero-visual">
     <img
       src="assets/parktownNorth.png"
-      alt="Illustration of Parktown North with tree-lined avenues, local shops, families, and dogs."
+      alt="Illustration of Parktown North Community with tree-lined avenues, local shops, families, and dogs."
     />
     <div class="hero-overlay"></div>
   </div>
   <main>
     <section class="hero">
       <div class="hero-welcome top">
-        <p>Welcome to</p>
-        <h2>Parktown North</h2>
+        <p>Join us in</p>
+        <h2>Parktown North Community</h2>
       </div>
       <div class="hero-text bottom">
-        <p class="eyebrow">Neighborhood charity adventure</p>
+        <p class="eyebrow">Community fun day for local NGOs</p>
         <h1>{{ title }}</h1>
         <p class="hero-body">
-          Spend a fun day exploring local businesses, completing playful challenges, and giving
-          back. Every ticket supports a community charity chosen by the Every Nation Church and PNRA.
+          Join a joyful carnival day with games, prizes, inflatables, and community stalls while raising funds for local NGOs. This event supports Every Nation Joburg Foundation and Every Nation African Havens.
         </p>
         <div class="hero-actions">
-          <button class="primary-btn">Reserve a team spot</button>
-          <button class="ghost-btn">Sponsor a team</button>
+          <button class="primary-btn">Buy tickets</button>
+          <button class="ghost-btn">Sponsor the day</button>
         </div>
         <div class="hero-stats">
           <div>
             <span class="stat">12+</span>
-            <span class="label">local stops</span>
+            <span class="label">games & stalls</span>
           </div>
           <div>
             <span class="stat">3 hrs</span>
-            <span class="label">of adventures</span>
+            <span class="label">of carnival fun</span>
           </div>
           <div>
             <span class="stat">100%</span>
@@ -50,25 +49,25 @@
         </div>
       </div>
       <div class="hero-card bottom">
-        <div class="card-badge">Launch day</div>
+        <div class="card-badge">Carnival day</div>
         <h2>Saturday, July 18</h2>
-        <p>Check-in opens at 9:00 AM · Hunt runs 10:00 AM - 1:00 PM</p>
+        <p>Open from 10:00 AM - 2:00 PM</p>
         <div class="card-grid">
           <div>
-            <h3>Start point</h3>
-            <p>Every Nations Church</p>
+            <h3>Venue</h3>
+            <p>Every Nation Rosebank</p>
           </div>
           <div>
-            <h3>Finish line</h3>
-            <p>Every Nations Church</p>
+            <h3>Address</h3>
+            <p>20A 7th Ave, Parktown North</p>
           </div>
           <div>
-            <h3>Charity</h3>
-            <p>Neighborhood Food Bank</p>
+            <h3>Beneficiaries</h3>
+            <p>Every Nation Joburg Foundation & Every Nation African Havens</p>
           </div>
           <div>
-            <h3>Prize draw</h3>
-            <p>1:30 PM live</p>
+            <h3>Contact</h3>
+            <p>084 606 6749</p>
           </div>
         </div>
         <button class="secondary-btn">Add to Calendar</button>
@@ -77,10 +76,9 @@
 
     <section id="how-it-works" class="section how-it-works">
       <div class="section-heading">
-        <h2>How the treasure hunt works</h2>
+        <h2>What to expect at the carnival</h2>
         <p>
-          Every team gets a unique map and clue path. Complete the tasks, collect stamps, and
-          return before the cutoff time to enter the prize draw.
+          Bring friends and family for a fun-filled day with entertainment, community stalls, and fundraising moments throughout the event.
         </p>
       </div>
       <div class="steps">
@@ -95,10 +93,9 @@
 
     <section id="stops" class="section stops">
       <div class="section-heading">
-        <h2>Featured business stops</h2>
+        <h2>Carnival attractions</h2>
         <p>
-          These are sample partners for the layout. Each business hosts a quick, fun challenge
-          and rewards teams with a small perk.
+          Enjoy inflatables, games, sweet treats, and more while helping raise support for local NGOs.
         </p>
       </div>
       <div class="stop-grid">
@@ -120,8 +117,8 @@
 
     <section id="tickets" class="section tickets">
       <div class="section-heading">
-        <h2>Tickets &amp; sponsorships</h2>
-        <p>Choose a ticket tier that fits your team. All proceeds go directly to the charity.</p>
+        <h2>Tickets &amp; giving</h2>
+        <p>Tickets are R100 per person and include R50 in carnival vouchers plus secure parking.</p>
       </div>
       <div class="ticket-grid">
         @for (tier of ticketTiers; track tier.name) {
@@ -141,27 +138,25 @@
 
     <section id="site-hunt" class="section site-hunt">
       <div class="section-heading">
-        <h2>QR clue bonus draw</h2>
+        <h2>Support local NGOs</h2>
         <p>
-          Find the character at a featured business, scan the QR code, and enter the bonus draw.
-          Each QR code includes a unique daily entry code.
+          Your ticket and donations support local NGO work. You can also scan the event QR code on-site to give more directly.
         </p>
       </div>
       <div class="hunt-grid">
         <div class="hunt-card">
-          <h3>Clue of the week</h3>
+          <h3>Community impact</h3>
           <p>
-            “Where the river bends, a compass points to the mural with three stars.”
+            Every contribution helps fund practical support for families and communities through trusted local NGO partners.
           </p>
         </div>
         <div class="hunt-card">
-          <h3>Ready to enter?</h3>
+          <h3>Want to give more?</h3>
           <p class="hunt-note">
-            Scan the QR code at the business to open the entry form automatically. For preview,
-            you can visit the form with a demo code.
+            Visit the NGO stands during the carnival day to donate, learn about their work, or sign up to volunteer.
           </p>
           <div class="hunt-actions">
-            <a class="primary-btn" [routerLink]="['/qr-entry', 'demo-2024']">Open demo form</a>
+            <a class="primary-btn" [routerLink]="['/company-registration']">Open giving form</a>
           </div>
         </div>
       </div>
@@ -169,24 +164,23 @@
 
     <section class="section neighborhood">
       <div class="section-heading">
-        <h2>Why Parktown North?</h2>
+        <h2>Why Parktown North Community?</h2>
         <p>
-          Tree-lined avenues, family-friendly spaces, and dog-walk routes make this suburb a
-          perfect treasure hunt playground with plenty of food stops along the way.
+          This carnival is about neighbors showing up for one another, having fun together, and creating meaningful support for local nonprofit work.
         </p>
       </div>
       <div class="neighborhood-grid">
         <article class="neighborhood-card">
-          <h3>Leafy avenues</h3>
-          <p>Shaded streets and parks keep teams cool while they follow the clues.</p>
+          <h3>Family-friendly fun</h3>
+          <p>Games, inflatables, and prizes make this day enjoyable for kids, teens, and adults.</p>
         </article>
         <article class="neighborhood-card">
-          <h3>Family + dog friendly</h3>
-          <p>Bring the kids, the pups, and the grandparents for a relaxed community day out.</p>
+          <h3>Giving with purpose</h3>
+          <p>Every ticket purchased helps fund the work of local NGOs serving people in need.</p>
         </article>
         <article class="neighborhood-card">
-          <h3>Food &amp; walking culture</h3>
-          <p>Enjoy cafés, grills, and local markets between stops along walkable routes.</p>
+          <h3>Stronger together</h3>
+          <p>Meet neighbors, support good causes, and build a stronger, more connected community.</p>
         </article>
       </div>
     </section>
@@ -194,14 +188,14 @@
     <section class="section charity">
       <div class="charity-card">
         <div>
-          <h2>Every ticket helps a neighbor</h2>
+          <h2>A carnival that gives back</h2>
           <p>
-            This year we are supporting the Neighborhood Food Bank with grocery gift cards and
+            This year we are supporting the Every Nation Joburg Foundation & Every Nation African Havens with grocery gift cards and
             pantry supplies. Want to donate additional items? We will share a wish list after
             ticket purchase.
           </p>
         </div>
-        <button class="secondary-btn">Donate items</button>
+        <button class="secondary-btn">Donate now</button>
       </div>
     </section>
 
@@ -223,7 +217,7 @@
     <div>
       <h3>Get involved</h3>
       <p>
-        Please call Lynne on 084 606 6749 or email<a href="mailto:Lynne@eventhelpline.com">Lynne&#64;eventhelpline.com</a>if you wish to sponsor prizes or have any questions.
+        Please call Lynne on 084 606 6749 or email <a href="mailto:Lynne@eventhelpline.com">Lynne&#64;eventhelpline.com</a> if you would like to sponsor, donate, or ask any questions.
       </p>
     </div>
     <div class="footer-actions">
