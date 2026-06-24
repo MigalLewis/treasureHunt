@@ -15,7 +15,7 @@ import {
   styleUrl: './home.component.scss'
 })
 export class HomeComponent {
-  title = 'Neighborhood Treasure Hunt';
+  title = 'Community Carnival';
 
   readonly homeContent: Signal<typeof fallbackHomeContent>;
 
